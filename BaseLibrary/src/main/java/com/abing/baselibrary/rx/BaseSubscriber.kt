@@ -1,11 +1,12 @@
 package com.abing.baselibrary.rx
 
+import com.abing.baselibrary.presenter.view.BaseView
 import rx.Subscriber
 
 /**
  *
  * 项目名称：KotlinMallDemo
- * 类描述：
+ * 类描述：Rx订阅者默认实现
  * 创建人：liubing
  * 创建时间：2018-7-6 17:53
  * 修改人：Administrator
@@ -14,13 +15,18 @@ import rx.Subscriber
  * @version
  *
  */
-open class BaseSubscriber<T> :Subscriber<T>() {
+open class BaseSubscriber<T> (val baseView: BaseView):Subscriber<T>() {
     override fun onNext(t: T) {
     }
 
     override fun onError(e: Throwable?) {
+        baseView.hideLoading()
+        if(e is BaseException){
+            baseView.onError(e.msg)
+        }
     }
 
     override fun onCompleted() {
+        baseView.hideLoading()
     }
 }

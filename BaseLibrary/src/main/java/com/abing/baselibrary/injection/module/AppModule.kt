@@ -1,8 +1,11 @@
 package com.abing.baselibrary.injection.module
 
+import android.content.Context
 import com.abing.baselibrary.common.BaseApplication
 import dagger.Module
+import dagger.Provides
 import java.security.AccessControlContext
+import javax.inject.Singleton
 
 /**
  *
@@ -21,4 +24,9 @@ import java.security.AccessControlContext
  */
 @Module
 class AppModule (private val context: BaseApplication){
+    @Singleton
+    @Provides
+    fun provideContext(): Context {
+        return this.context
+    }
 }

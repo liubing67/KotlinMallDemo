@@ -2,6 +2,7 @@ package com.abing.baselibrary.common
 
 import android.app.Application
 import android.content.Context
+import com.abing.baselibrary.injection.component.AppComponent
 import com.abing.baselibrary.injection.module.AppModule
 
 /**
@@ -21,12 +22,12 @@ import com.abing.baselibrary.injection.module.AppModule
  */
 open class BaseApplication : Application() {
 
-//    lateinit var appComponent: AppComponent
+    lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
 
-//        initAppInjection()
+        initAppInjection()
 
         context = this
 
@@ -36,12 +37,12 @@ open class BaseApplication : Application() {
 //        ARouter.init(this)
     }
 
-//    /*
-//        Application Component初始化
-//     */
-//    private fun initAppInjection() {
+    /*
+        Application Component初始化
+     */
+    private fun initAppInjection() {
 //        appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
-//    }
+    }
 
     /*
         全局伴生对象

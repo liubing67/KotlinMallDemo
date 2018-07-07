@@ -1,15 +1,11 @@
 package com.abing.usercenter.presenter
 
-//import com.abing.baselibrary.ext.excute
 import com.abing.baselibrary.presenter.BasePresenter
-import com.abing.baselibrary.presenter.view.BaseView
 import com.abing.baselibrary.rx.BaseSubscriber
 import com.abing.usercenter.presenter.view.RegisterView
 import com.abing.usercenter.service.UserService
+import com.abing.baselibrary.ext.excute
 import com.abing.usercenter.service.impl.UserServiceImpl
-import rx.Subscriber
-import rx.android.schedulers.AndroidSchedulers
-import rx.schedulers.Schedulers
 import javax.inject.Inject
 
 /**
@@ -33,18 +29,18 @@ class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>() {
     lateinit var userService: UserService
 
 
-    fun register(mobile: String, pwd: String, verifyCode: String) {
+    fun register(mobile: String,  verifyCode: String,pwd: String) {
 //        if (!checkNetWork()) {
 //            return
 //        }
-//        mView.showLoading()
-//
-//        userService.register(mobile, pwd, verifyCode).excute(object : BaseSubscriber<Boolean>(mView) {
-//            override fun onNext(t: Boolean) {
+        mView.showLoading()
+
+        userService.register(mobile,verifyCode, pwd).excute(object : BaseSubscriber<Boolean>(mView) {
+            override fun onNext(t: Boolean) {
 //                if (t)
-//                    mView.onRegisterResult("注册成功")
-//            }
-//        }, lifecycleProvider)
+                    mView.onRegisterResult("注册成功")
+            }
+        }, lifecycleProvider)
 
     }
 

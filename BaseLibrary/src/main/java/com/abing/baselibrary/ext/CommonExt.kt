@@ -1,4 +1,4 @@
-package com.kotlin.base.ext
+package com.abing.baselibrary.ext
 
 import android.graphics.drawable.AnimationDrawable
 import android.view.View
@@ -12,7 +12,7 @@ import com.abing.baselibrary.rx.BaseFunc
 import com.abing.baselibrary.rx.BaseFuncBoolean
 import com.abing.baselibrary.rx.BaseSubscriber
 import com.abing.baselibrary.utils.GlideUtils
-//import com.abing.baselibrary.widgets.DefaultTextWatcher
+import com.kotlin.base.widgets.DefaultTextWatcher
 import com.trello.rxlifecycle.LifecycleProvider
 import org.jetbrains.anko.find
 import rx.Observable
@@ -65,14 +65,14 @@ fun View.onClick(method:() -> Unit):View{
 /*
     扩展Button可用性
  */
-//fun Button.enable(et:EditText,method: () -> Boolean){
-//    val btn = this
-//    et.addTextChangedListener(object : DefaultTextWatcher(){
-//        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-//            btn.isEnabled = method()
-//        }
-//    })
-//}
+fun Button.enable(et:EditText,method: () -> Boolean){
+    val btn = this
+    et.addTextChangedListener(object : DefaultTextWatcher(){
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            btn.isEnabled = method()
+        }
+    })
+}
 
 /*
     ImageView加载网络图片
