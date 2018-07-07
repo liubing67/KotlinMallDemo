@@ -18,7 +18,7 @@ import rx.Observable
 interface UserService {
 
     //用户注册
-    fun register(mobile: String, pwd: String, verifyCode: String): Observable<Boolean>
+    fun register(mobile: String, pwd: String, verifyCode: String)
 
 //    //用户登录
 //    fun login(mobile: String, pwd: String, pushId: String): Observable<UserInfo>

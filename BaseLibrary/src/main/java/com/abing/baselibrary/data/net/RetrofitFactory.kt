@@ -1,6 +1,7 @@
 package com.abing.baselibrary.data.net
 
 import com.abing.baselibrary.common.BaseConstant
+import com.abing.baselibrary.utils.AppPrefsUtils
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -44,7 +45,7 @@ class RetrofitFactory private constructor(){
                 .newBuilder()
                 .addHeader("Content_Type","application/json")
                 .addHeader("charset","UTF-8")
-                .addHeader("token",AppPrefsUtils.getString(BaseConstant.KEY_SP_TOKEN))
+                .addHeader("token", AppPrefsUtils.getString(BaseConstant.KEY_SP_TOKEN))
                 .build()
 
             chain.proceed(request)

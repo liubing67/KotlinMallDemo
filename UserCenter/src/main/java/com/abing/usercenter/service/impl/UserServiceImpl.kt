@@ -1,10 +1,11 @@
 package com.abing.usercenter.service.impl
 
 import com.abing.usercenter.data.protocol.UserInfo
+import com.abing.usercenter.data.respository.UserRepository
 import com.abing.usercenter.service.UserService
 import rx.Observable
 import javax.inject.Inject
-
+//import com.abing.baselibrary.ext.convertBoolean
 /**
  * 项目名称：KotlinMallDemo
  * 类描述：
@@ -20,11 +21,14 @@ import javax.inject.Inject
 class UserServiceImpl @Inject constructor():UserService{
 
 
+    @Inject
+    lateinit var repository:UserRepository
     /*
        注册
     */
-    override fun register(mobile: String,verifyCode: String,pwd: String): Observable<Boolean> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun register(mobile: String,verifyCode: String,pwd: String){
+//        return repository.register(mobile,verifyCode,pwd).convertBoolean()
+//        return true
     }
 
 

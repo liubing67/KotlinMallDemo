@@ -1,0 +1,88 @@
+//此文件用于对第三方依赖包的版本控制
+ext {
+    android = [
+            compileSdkVersion: 26,
+            buildToolsVersion: "26.0.2",
+            minSdkVersion    : 15,
+            targetSdkVersion : 26,
+            versionCode      : 1,
+            versionName      : "1.0",
+    ]
+    dependencies = [
+            //Android Support
+            "support-v4"             : 'com.android.support:support-v4:26.0.1',
+            "appcompat-v7"           : 'com.android.support:appcompat-v7:26.0.1',
+            "recyclerview-v7"        : 'com.android.support:recyclerview-v7:26.0.1',
+            "design"                 : 'com.android.support:design:26.0.1',
+            "cardview-v7"            : 'com.android.support:cardview-v7:26.0.1',
+            "kotlin-stdlib-jre7"     : 'org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.41',
+
+            // Anko Commons
+            "anko-commons"           : 'org.jetbrains.anko:anko-commons:0.10.1',
+
+            // Support-v4 (only Anko Commons)
+            "anko-support-v4-commons": 'org.jetbrains.anko:anko-support-v4-commons:0.10.1',
+            //RxKotlin and RxAndroid
+            "rxkotlin"               : 'io.reactivex:rxkotlin:1.0.0',
+            "rxandroid"              : 'io.reactivex:rxandroid:1.2.1',
+
+            //Retrofit
+            "okhttp"                 : 'com.squareup.okhttp3:okhttp:3.4.1',
+            "retrofit"               : 'com.squareup.retrofit2:retrofit:2.1.0',
+            "logging-interceptor"    : 'com.squareup.okhttp3:logging-interceptor:3.4.1',
+            "converter-gson"         : 'com.squareup.retrofit2:converter-gson:2.1.0',
+            "adapter-rxjava"         : 'com.squareup.retrofit2:adapter-rxjava:2.1.0',
+
+            //Dagger2
+            "dagger"                 : 'com.google.dagger:dagger:2.11',
+            "dagger-compiler"        : 'com.google.dagger.dagger-compiler:2.11',
+            //
+            //RxLifecycle
+            "rxlifecycle-kotlin"     : 'com.trello:rxlifecycle-kotlin:1.0',
+            "rxlifecycle-components" : 'com.trello:rxlifecycle-components:1.0',
+
+            //Glide
+            "glide"                  : 'com.github.bumptech.glide:glide:3.7.0',
+            //
+            //Circle ImageView
+            "circleimageview"        : 'de.hdodenhof:circleimageview:2.1.0',
+            //
+            //Take Photo
+            "takephoto_library"      : 'com.jph.takephoto:takephoto_library:4.0.3',
+            //
+            //Alert View
+            "alertview"              : 'com.bigkoo:alertview:1.0.3',
+            //
+            //七牛
+            "qiniu-android-sdk"      : 'com.qiniu:qiniu-android-sdk:7.3.+',
+            //
+            //底部导航
+            "bottom-navigation-bar"  : 'com.ashokvarma.android:bottom-navigation-bar:2.0.2',
+            //
+            //Banner
+            "banner"                 : 'com.youth.banner:banner:1.4.10',
+
+            //最新版本
+
+            //标签
+            "TriangleLabelView"      : 'com.github.shts:TriangleLabelView:1.1.2',
+
+            //画廊
+            "Android-Coverflow"      : 'com.github.crosswall:Android-Coverflow:release-v1.0.4',
+
+            //上下拉刷新
+            "bga-refreshlayou"       : 'cn.bingoogolapple:bga-refreshlayout:1.1.7@aar',
+
+            //Kotlin Bus
+            "rxbus"                  : 'com.eightbitlab:rxbus:1.0.2',
+
+            //FlowLayout
+            "flowlayout-lib"         : 'com.zhy:flowlayout-lib:1.0.3',
+
+            //ARouter
+            "arouter-api"            : 'com.alibaba:arouter-api:1.2.2',
+
+            //BadgeView
+            "badgeview"              : 'q.rorbin:badgeview:1.1.2',
+    ]
+}
