@@ -1,8 +1,11 @@
 package com.abing.usercenter.data.api
 
 import com.abing.baselibrary.data.protocol.BaseResp
+import com.abing.usercenter.data.protocol.LoginReq
 import com.abing.usercenter.data.protocol.RegisterReq
+import com.abing.usercenter.data.protocol.UserInfo
 import retrofit2.http.Body
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 import rx.Observable
 
@@ -25,4 +28,10 @@ interface UserApi {
      */
     @POST("userCenter/regiser")
     fun register(@Body req: RegisterReq):Observable<BaseResp<String>>
+
+    /*
+    用户登录
+     */
+    @POST("loginCheck")
+    fun login(@Body req: LoginReq):Observable<BaseResp<UserInfo>>
 }

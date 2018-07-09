@@ -2,6 +2,8 @@ package com.abing.baselibrary.data.net
 
 import com.abing.baselibrary.common.BaseConstant
 import com.abing.baselibrary.utils.AppPrefsUtils
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -51,10 +53,11 @@ class RetrofitFactory private constructor(){
             chain.proceed(request)
         }
 
+
         //Retrofit实例化
         retrofit = Retrofit.Builder()
                 .baseUrl(BaseConstant.SERVER_ADDRESS)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:dd").create()))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .client(initClient())
                 .build()

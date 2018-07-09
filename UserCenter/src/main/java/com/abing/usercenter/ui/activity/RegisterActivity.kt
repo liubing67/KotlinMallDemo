@@ -3,6 +3,7 @@ package com.abing.usercenter.ui.activity
 import android.os.Bundle
 import android.view.View
 import com.abing.baselibrary.common.AppManager
+import com.abing.baselibrary.ext.enable
 import com.abing.baselibrary.ext.onClick
 import com.abing.baselibrary.ui.activity.BaseMvpActivity
 import com.abing.usercenter.R
@@ -39,16 +40,21 @@ class RegisterActivity:BaseMvpActivity<RegisterPresenter>(),RegisterView, View.O
     override fun injectComponent() {
 
         DaggerUserComponent.builder().activityComponent(mActivityComponent).userModule(UserModule()).build().inject(this)
-//        DaggerUserComponent.builder().userModule(UserModule()).build().inject(this);
-//        mPresenter= RegisterPresenter()
         mPresenter.mView=this
     }
     /*
     初始化视图
      */
     private fun initView(){
+        mRegisterBtn.enable(mMobileEt,{isBtnEnable()})
+        mRegisterBtn.enable(mVerifyCodeEt,{isBtnEnable()})
+        mRegisterBtn.enable(mPwdEt,{isBtnEnable()})
+        mRegisterBtn.enable(mPwdConfirmEt,{isBtnEnable()})
+
+
         mRegisterBtn.onClick(this)
         mVerifyCodeBtn.onClick(this)
+
     }
 
     /*
@@ -80,5 +86,16 @@ class RegisterActivity:BaseMvpActivity<RegisterPresenter>(),RegisterView, View.O
         }else{
             AppManager.instance.exitApp(this);
         }
+    }
+
+    /*
+    判断按钮是否可用
+     */
+
+    private fun isBtnEnable():Boolean{
+        return mMobileEt.text.isNullOrEmpty().not()&&
+                mVerifyCodeEt.text.isNullOrEmpty().not()&&
+                mPwdEt.text.isNullOrEmpty().not()&&
+                mPwdConfirmEt.text.isNullOrEmpty().not()
     }
 }

@@ -22,8 +22,10 @@ open class BaseSubscriber<T> (val baseView: BaseView):Subscriber<T>() {
     override fun onError(e: Throwable?) {
         baseView.hideLoading()
         if(e is BaseException){
-            baseView.onError(e.msg)
+            baseView.onError(e.rtMsrg)
+            baseView.onError("222222222")
         }
+
     }
 
     override fun onCompleted() {

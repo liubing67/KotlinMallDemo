@@ -1,8 +1,10 @@
 package com.abing.usercenter.service.impl
 
+import com.abing.baselibrary.ext.convert
 import com.abing.usercenter.data.respository.UserRepository
 import com.abing.usercenter.service.UserService
 import com.abing.baselibrary.ext.convertBoolean
+import com.abing.usercenter.data.protocol.UserInfo
 import rx.Observable
 import javax.inject.Inject
 /**
@@ -20,6 +22,7 @@ import javax.inject.Inject
 class UserServiceImpl @Inject constructor():UserService{
 
 
+
     @Inject
     lateinit var repository:UserRepository
     /*
@@ -28,6 +31,11 @@ class UserServiceImpl @Inject constructor():UserService{
     override fun register(mobile: String,verifyCode: String,pwd: String):Observable<Boolean>{
         return repository.register(mobile,verifyCode,pwd).convertBoolean()
     }
-
+    /*
+    //用户登录
+     */
+    override fun login(mobile: String, pwd: String, pushId: String): Observable<UserInfo> {
+        return repository.login(mobile,pwd,pushId).convert()
+    }
 
 }

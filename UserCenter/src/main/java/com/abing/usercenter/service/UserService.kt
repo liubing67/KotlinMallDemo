@@ -20,9 +20,9 @@ interface UserService {
     //用户注册
     fun register(mobile: String, verifyCode: String, pwd: String):Observable<Boolean>
 
-//    //用户登录
-//    fun login(mobile: String, pwd: String, pushId: String): Observable<UserInfo>
-//
+    //用户登录
+    fun login(mobile: String, pwd: String, pushId: String): Observable<UserInfo>
+
 //    //忘记密码
 //    fun forgetPwd(mobile: String, verifyCode: String): Observable<Boolean>
 //
