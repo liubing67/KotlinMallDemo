@@ -1,4 +1,4 @@
-package com.kotlin.base.widgets
+package com.abing.baselibrary.widgets
 
 import android.app.Dialog
 import android.content.Context
@@ -20,7 +20,7 @@ class ProgressLoading private constructor(context: Context, theme: Int) : Dialog
         /*
             创建加载对话框
          */
-        fun create(context: Context):ProgressLoading {
+        fun create(context: Context): ProgressLoading {
             //样式引入
             mDialog = ProgressLoading(context, R.style.LightProgressDialog)
             //设置布局

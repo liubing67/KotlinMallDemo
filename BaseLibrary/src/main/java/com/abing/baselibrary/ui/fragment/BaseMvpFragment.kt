@@ -6,11 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.abing.baselibrary.common.BaseApplication
 import com.abing.baselibrary.injection.component.ActivityComponent
+import com.abing.baselibrary.injection.component.DaggerActivityComponent
 import com.abing.baselibrary.injection.module.ActivityModule
 import com.abing.baselibrary.injection.module.LifecycleProviderModule
 import com.abing.baselibrary.presenter.BasePresenter
 import com.abing.baselibrary.presenter.view.BaseView
-import com.kotlin.base.widgets.ProgressLoading
+import com.abing.baselibrary.widgets.ProgressLoading
 import org.jetbrains.anko.support.v4.toast
 import javax.inject.Inject
 

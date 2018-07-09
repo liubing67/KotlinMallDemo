@@ -3,6 +3,7 @@ package com.abing.baselibrary.common
 import android.app.Application
 import android.content.Context
 import com.abing.baselibrary.injection.component.AppComponent
+import com.abing.baselibrary.injection.component.DaggerAppComponent
 import com.abing.baselibrary.injection.module.AppModule
 
 /**
@@ -41,7 +42,7 @@ open class BaseApplication : Application() {
         Application Component初始化
      */
     private fun initAppInjection() {
-//        appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
+        appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
     }
 
     /*

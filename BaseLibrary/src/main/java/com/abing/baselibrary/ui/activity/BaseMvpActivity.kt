@@ -3,14 +3,14 @@ package com.abing.baselibrary.ui.activity
 import android.os.Bundle
 import com.abing.baselibrary.common.BaseApplication
 import com.abing.baselibrary.injection.component.ActivityComponent
+import com.abing.baselibrary.injection.component.DaggerActivityComponent
 import com.abing.baselibrary.injection.module.ActivityModule
 import com.abing.baselibrary.injection.module.LifecycleProviderModule
 import com.abing.baselibrary.presenter.BasePresenter
 import com.abing.baselibrary.presenter.view.BaseView
-import com.kotlin.base.widgets.ProgressLoading
+import com.abing.baselibrary.widgets.ProgressLoading
 import org.jetbrains.anko.toast
 import javax.inject.Inject
-
 /**
  *
  * 项目名称：KotlinMallDemo
@@ -61,7 +61,6 @@ abstract open class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), Base
                 .activityModule(ActivityModule(this))
                 .lifecycleProviderModule(LifecycleProviderModule(this))
                 .build()
-
     }
 
     /*

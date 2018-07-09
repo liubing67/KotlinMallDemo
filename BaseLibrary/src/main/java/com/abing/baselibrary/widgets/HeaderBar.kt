@@ -32,20 +32,18 @@ class HeaderBar @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
     //是否显示"返回"图标
-    private var isShowBack = true
+    private var isShowBack = true;
     //Title文字
-    private var titleText:String? = null
-    //右侧文字
-    private var rightText:String? = null
+    private var titleText:String?=null;
+    //右侧文件
+    private var rightText:String?=null;
 
-    init {
+    init{
         //获取自定义属性
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.HeaderBar)
-
-        isShowBack = typedArray.getBoolean(R.styleable.HeaderBar_isShowBack,true)
-
-        titleText = typedArray.getString(R.styleable.HeaderBar_titleText)
-        rightText = typedArray.getString(R.styleable.HeaderBar_rightText)
+        val typedArray=context.obtainStyledAttributes(attrs,R.styleable.HeaderBar)
+        isShowBack=typedArray.getBoolean(R.styleable.HeaderBar_isShowBack,true)
+        titleText=typedArray.getString(R.styleable.HeaderBar_titleText)
+        rightText=typedArray.getString(R.styleable.HeaderBar_rightText)
 
         initView()
         typedArray.recycle()
@@ -56,47 +54,43 @@ class HeaderBar @JvmOverloads constructor(
      */
     private fun initView() {
         View.inflate(context,R.layout.layout_header_bar,this)
-
-        mLeftIv.visibility = if (isShowBack) View.VISIBLE else View.GONE
+        mLeftIv.visibility=if(isShowBack)View.VISIBLE else View.GONE
 
         //标题不为空，设置值
         titleText?.let {
-            mTitleTv.text = it
+            mTitleTv.text=it;
         }
 
         //右侧文字不为空，设置值
         rightText?.let {
-            mRightTv.text = it
-            mRightTv.visibility = View.VISIBLE
+            mRightTv.text=it;
+            mRightTv.visibility=View.VISIBLE
         }
 
-        //返回图标默认实现（关闭Activity）
+        //返回图标默认实现（关闭activity）
         mLeftIv.onClick {
             if (context is Activity){
                 (context as Activity).finish()
             }
         }
-
     }
 
     /*
-        获取左侧视图
+    获取左侧视图
      */
-    fun getLeftView(): ImageView {
+    fun getLeftView():ImageView{
         return mLeftIv
     }
-
     /*
-        获取右侧视图
+    获取右侧视图
      */
-    fun getRightView(): TextView {
+    fun getRightView():TextView{
         return mRightTv
     }
-
     /*
-        获取右侧文字
+    获取右侧文字
      */
     fun getRightText():String{
-        return mRightTv.text.toString()
+        return mRightTv.text.toString();
     }
 }

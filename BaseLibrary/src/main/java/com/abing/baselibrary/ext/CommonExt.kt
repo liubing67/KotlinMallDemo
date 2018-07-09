@@ -12,7 +12,7 @@ import com.abing.baselibrary.rx.BaseFunc
 import com.abing.baselibrary.rx.BaseFuncBoolean
 import com.abing.baselibrary.rx.BaseSubscriber
 import com.abing.baselibrary.utils.GlideUtils
-import com.kotlin.base.widgets.DefaultTextWatcher
+import com.abing.baselibrary.widgets.DefaultTextWatcher
 import com.trello.rxlifecycle.LifecycleProvider
 import org.jetbrains.anko.find
 import rx.Observable

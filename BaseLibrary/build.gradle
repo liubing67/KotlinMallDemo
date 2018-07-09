@@ -55,7 +55,7 @@ dependencies {
 
     //Dagger2
     compile rootProject.ext.dependencies["dagger"]
-//    kapt  rootProject.ext.dependencies["dagger-compiler"]
+    kapt  rootProject.ext.dependencies["dagger-compiler"]
 
     //RxLifecycle
     compile rootProject.ext.dependencies["rxlifecycle-kotlin"]

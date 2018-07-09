@@ -2,16 +2,16 @@ package com.abing.usercenter.ui.activity
 
 import android.os.Bundle
 import android.view.View
+import com.abing.baselibrary.common.AppManager
+import com.abing.baselibrary.ext.onClick
 import com.abing.baselibrary.ui.activity.BaseMvpActivity
 import com.abing.usercenter.R
-import com.abing.usercenter.presenter.RegisterPresenter
-import com.abing.usercenter.presenter.view.RegisterView
-import com.abing.baselibrary.ext.onClick
 import com.abing.usercenter.injection.component.DaggerUserComponent
 import com.abing.usercenter.injection.module.UserModule
+import com.abing.usercenter.presenter.RegisterPresenter
+import com.abing.usercenter.presenter.view.RegisterView
 import kotlinx.android.synthetic.main.activity_register.*
 import org.jetbrains.anko.toast
-import javax.inject.Inject
 
 /**
  * 项目名称：KotlinMallDemo
@@ -24,7 +24,7 @@ import javax.inject.Inject
  */
 class RegisterActivity:BaseMvpActivity<RegisterPresenter>(),RegisterView, View.OnClickListener {
 
-
+    private var pressTime:Long = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +37,10 @@ class RegisterActivity:BaseMvpActivity<RegisterPresenter>(),RegisterView, View.O
         Dagger注册
      */
     override fun injectComponent() {
+
         DaggerUserComponent.builder().activityComponent(mActivityComponent).userModule(UserModule()).build().inject(this)
+//        DaggerUserComponent.builder().userModule(UserModule()).build().inject(this);
+//        mPresenter= RegisterPresenter()
         mPresenter.mView=this
     }
     /*
@@ -45,6 +48,7 @@ class RegisterActivity:BaseMvpActivity<RegisterPresenter>(),RegisterView, View.O
      */
     private fun initView(){
         mRegisterBtn.onClick(this)
+        mVerifyCodeBtn.onClick(this)
     }
 
     /*
@@ -61,6 +65,20 @@ class RegisterActivity:BaseMvpActivity<RegisterPresenter>(),RegisterView, View.O
            R.id.mRegisterBtn->{
                mPresenter.register(mMobileEt.text.toString(),mVerifyCodeEt.text.toString(),mPwdEt.text.toString())
            }
+           R.id.mVerifyCodeBtn->{
+               mVerifyCodeBtn.requestSendVerifyNumber()
+               toast("发送验证成功")
+           }
        }
+    }
+
+    override fun onBackPressed() {
+        val time=System.currentTimeMillis()
+        if(time-pressTime>2000){
+            toast("再按一次退出程序")
+            pressTime=time
+        }else{
+            AppManager.instance.exitApp(this);
+        }
     }
 }
