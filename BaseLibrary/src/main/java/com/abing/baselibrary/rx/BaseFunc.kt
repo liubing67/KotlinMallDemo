@@ -25,7 +25,6 @@ class BaseFunc<T>: Func1<BaseResp<T>, Observable<T>> {
         if (t.rtState != ResultCode.SUCCESS){
             return Observable.error(BaseException(t.rtState,t.rtMsrg))
         }
-
         return Observable.just(t.rtData)
     }
 }

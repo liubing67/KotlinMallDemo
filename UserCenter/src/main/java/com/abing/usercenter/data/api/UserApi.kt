@@ -27,8 +27,9 @@ interface UserApi {
     /*
     用户注册
      */
+    @FormUrlEncoded
     @POST("userCenter/regiser")
-    fun register(@Body req: RegisterReq):Observable<BaseResp<String>>
+    fun register(@Field("mobile")mobile:String,@Field("verifyCode") verifyCode:String,@Field("pwd")pwd:String):Observable<BaseResp<String>>
 
     /*
     用户登录
@@ -37,4 +38,18 @@ interface UserApi {
     @POST("loginCheck")
     fun login(@Field("username")username:String,@Field("password") password:String):Observable<BaseResp<UserInfo>>
 //    fun login(@Body req: LoginReq):Observable<BaseResp<UserInfo>>
+
+    /*
+   忘记密码，获取验证码
+    */
+    @FormUrlEncoded
+    @POST("core/funcs/crma/mobileagent/getFindPwdVerifyCode")
+    fun forgetPwd(@Field("mobile")mobile:String,@Field("udid") udid:String,@Field("type")type:String,@Field("sign")sign:String):Observable<BaseResp<String>>
+
+    /*
+           重置密码
+        */
+    @FormUrlEncoded
+    @POST("core/funcs/crma/mobileagent/updateFindPwd")
+    fun resetPwd(@Field("mobile")mobile:String,@Field("newpwd") newpwd:String,@Field("confirmpwd")confirmpwd:String,@Field("udid")udid:String,@Field("type")type:String,@Field("authcode")authcode:String,@Field("sign")sign:String):Observable<BaseResp<String>>
 }

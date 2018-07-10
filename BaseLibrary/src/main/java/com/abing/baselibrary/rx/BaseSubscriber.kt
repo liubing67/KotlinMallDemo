@@ -26,6 +26,7 @@ open class BaseSubscriber<T> (val baseView: BaseView):Subscriber<T>() {
             baseView.onError(e.rtMsrg)
         }else{
             baseView.onError(e.toString())
+            Log.e("----------------",e.toString());
         }
     }
 

@@ -6,6 +6,7 @@ import com.abing.usercenter.data.api.UserApi
 import com.abing.usercenter.data.protocol.LoginReq
 import com.abing.usercenter.data.protocol.RegisterReq
 import com.abing.usercenter.data.protocol.UserInfo
+import retrofit2.http.Field
 import rx.Observable
 import java.sql.RowId
 import javax.inject.Inject
@@ -31,7 +32,7 @@ class UserRepository @Inject constructor(){
         用户注册
      */
     fun register(mobile:String,verifyCode:String,pwd:String): Observable<BaseResp<String>> {
-        return RetrofitFactory.instance.create(UserApi::class.java).register(RegisterReq(mobile,verifyCode,pwd))
+        return RetrofitFactory.instance.create(UserApi::class.java).register(mobile,verifyCode,pwd)
 
     }
 
@@ -40,5 +41,17 @@ class UserRepository @Inject constructor(){
      */
     fun login(mobile: String,pwd: String,pushId: String):Observable<BaseResp<UserInfo>>{
         return RetrofitFactory.instance.create(UserApi::class.java).login(mobile,pwd)
+    }
+    /*
+    忘记密码,获取验证码
+     */
+    fun forgetPwd(mobile: String, udid: String,type:String,sign:String):Observable<BaseResp<String>>{
+        return RetrofitFactory.instance.create(UserApi::class.java).forgetPwd(mobile,udid,type,sign)
+    }
+    /*
+    重置密码
+     */
+    fun resetPwd(mobile: String, newpwd: String, confirmpwd: String, udid: String, type: String, authcode: String, sign: String):Observable<BaseResp<String>>{
+        return RetrofitFactory.instance.create(UserApi::class.java).resetPwd(mobile, newpwd, confirmpwd, udid, type, authcode, sign)
     }
 }

@@ -37,5 +37,17 @@ class UserServiceImpl @Inject constructor():UserService{
     override fun login(mobile: String, pwd: String, pushId: String): Observable<UserInfo> {
         return repository.login(mobile,pwd,pushId).convert()
     }
+    /*
+    忘记密码
+     */
+    override fun forgetPwd(mobile: String, udid: String,type:String,sign:String): Observable<Boolean> {
+        return repository.forgetPwd(mobile,udid,type,sign).convertBoolean()
+    }
+    /*
+    重置密码
+     */
+    override fun resetPwd(mobile: String, newpwd: String, confirmpwd: String, udid: String, type: String, authcode: String, sign: String): Observable<Boolean> {
+        return repository.resetPwd(mobile, newpwd, confirmpwd, udid, type, authcode, sign).convertBoolean()
+    }
 
 }
