@@ -5,6 +5,7 @@ import com.abing.usercenter.data.protocol.LoginReq
 import com.abing.usercenter.data.protocol.RegisterReq
 import com.abing.usercenter.data.protocol.UserInfo
 import retrofit2.http.Body
+import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 import rx.Observable
@@ -32,6 +33,8 @@ interface UserApi {
     /*
     用户登录
      */
+    @FormUrlEncoded
     @POST("loginCheck")
-    fun login(@Body req: LoginReq):Observable<BaseResp<UserInfo>>
+    fun login(@Field("username")username:String,@Field("password") password:String):Observable<BaseResp<UserInfo>>
+//    fun login(@Body req: LoginReq):Observable<BaseResp<UserInfo>>
 }

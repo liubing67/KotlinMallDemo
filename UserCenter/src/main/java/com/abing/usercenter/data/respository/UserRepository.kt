@@ -39,6 +39,6 @@ class UserRepository @Inject constructor(){
     用户登录
      */
     fun login(mobile: String,pwd: String,pushId: String):Observable<BaseResp<UserInfo>>{
-        return RetrofitFactory.instance.create(UserApi::class.java).login(LoginReq(mobile,pwd))
+        return RetrofitFactory.instance.create(UserApi::class.java).login(mobile,pwd)
     }
 }

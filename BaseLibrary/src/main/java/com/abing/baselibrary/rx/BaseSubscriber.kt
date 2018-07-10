@@ -1,5 +1,6 @@
 package com.abing.baselibrary.rx
 
+import android.util.Log
 import com.abing.baselibrary.presenter.view.BaseView
 import rx.Subscriber
 
@@ -23,9 +24,9 @@ open class BaseSubscriber<T> (val baseView: BaseView):Subscriber<T>() {
         baseView.hideLoading()
         if(e is BaseException){
             baseView.onError(e.rtMsrg)
-            baseView.onError("222222222")
+        }else{
+            baseView.onError(e.toString())
         }
-
     }
 
     override fun onCompleted() {

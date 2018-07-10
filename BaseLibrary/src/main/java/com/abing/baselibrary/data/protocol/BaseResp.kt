@@ -18,4 +18,4 @@ package com.abing.baselibrary.data.protocol
     @message:响应文字消息
     @data:具体响应业务对象
  */
-data class BaseResp <out T>(val status:Int,val message:String,val data:T)
+data class BaseResp <out T>(val rtState:Int,val rtMsrg:String,val rtData:T)

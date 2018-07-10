@@ -12,9 +12,9 @@ package com.abing.usercenter.data.protocol
 /*
     用户实体类
  */
-data class UserInfo(val id:String,
-                    val userIcon:String,
-                    val userName:String,
+data class UserInfo(val agentId:String,
+                    val agentGrade:String,
+                    val bankAuth:String,
                     val userGender:String,
-                    val userMobile:String,
-                    val userSign:String)
+                    val agentName:String,
+                    val userName:String)
