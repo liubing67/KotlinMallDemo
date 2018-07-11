@@ -3,6 +3,7 @@ package com.abing.usercenter.data.respository
 import com.abing.baselibrary.data.net.RetrofitFactory
 import com.abing.baselibrary.data.protocol.BaseResp
 import com.abing.usercenter.data.api.UserApi
+import com.abing.usercenter.data.protocol.EditUserReq
 import com.abing.usercenter.data.protocol.LoginReq
 import com.abing.usercenter.data.protocol.RegisterReq
 import com.abing.usercenter.data.protocol.UserInfo
@@ -53,5 +54,12 @@ class UserRepository @Inject constructor(){
      */
     fun resetPwd(mobile: String, newpwd: String, confirmpwd: String, udid: String, type: String, authcode: String, sign: String):Observable<BaseResp<String>>{
         return RetrofitFactory.instance.create(UserApi::class.java).resetPwd(mobile, newpwd, confirmpwd, udid, type, authcode, sign)
+    }
+
+    /*
+    编辑用户资料
+     */
+    fun editUser(userIcon: String, userName: String, userGender: String, userSign: String):Observable<BaseResp<UserInfo>>{
+        return RetrofitFactory.instance.create(UserApi::class.java).editUser(EditUserReq(userIcon,userName,userGender,userSign))
     }
 }

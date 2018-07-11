@@ -11,7 +11,9 @@ import com.abing.usercenter.injection.component.DaggerUserComponent
 import com.abing.usercenter.injection.module.UserModule
 import com.abing.usercenter.presenter.LoginPresenter
 import com.abing.usercenter.presenter.view.LoginView
+import com.abing.usercenter.utils.UserPrefsUtils
 import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
@@ -45,9 +47,9 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(),LoginView, View.OnClickL
         mPresenter.mView = this
     }
     override fun onLoginResult(result: UserInfo) {
-//        toast(result)
         toast(result.toString())
-//        UserPrefsUtils.putUserInfo(result)
+        UserPrefsUtils.putUserInfo(result)
+        finish()
     }
 
     fun initView(){

@@ -29,7 +29,7 @@ interface UserService {
 
     //重置密码
     fun resetPwd(mobile: String, newpwd: String, confirmpwd: String, udid: String, type: String, authcode: String, sign: String): Observable<Boolean>
-//
-//    //编辑用户资料
-//    fun editUser(userIcon: String, userName: String, userGender: String, userSign: String): Observable<UserInfo>
+
+    //编辑用户资料
+    fun editUser(userIcon: String, userName: String, userGender: String, userSign: String): Observable<UserInfo>
 }

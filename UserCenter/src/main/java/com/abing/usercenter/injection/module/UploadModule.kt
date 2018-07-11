@@ -1,5 +1,7 @@
 package com.abing.usercenter.injection.module
 
+import com.abing.usercenter.service.UploadService
+import com.abing.usercenter.service.impl.UploadServiceImpl
 import dagger.Module
 import dagger.Provides
 
@@ -9,9 +11,9 @@ import dagger.Provides
 @Module
 class UploadModule {
 
-//    @Provides
-//    fun provideUploadService(uploadService: UploadServiceImpl): UploadService {
-//        return uploadService
-//    }
+    @Provides
+    fun provideUploadService(uploadService: UploadServiceImpl): UploadService {
+        return uploadService
+    }
 
 }

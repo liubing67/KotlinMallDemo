@@ -34,7 +34,7 @@ class LoginPresenter @Inject constructor(): BasePresenter<LoginView>() {
         if (!checkNetWork()){
             return
         }
-        mView.showLoading()
+//        mView.showLoading()
         userService.login(mobile,pwd,pushId).excute(object :BaseSubscriber<UserInfo>(mView){
             override fun onNext(t:UserInfo) {
                 mView.onLoginResult(t)

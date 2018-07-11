@@ -1,6 +1,7 @@
 package com.abing.usercenter.data.api
 
 import com.abing.baselibrary.data.protocol.BaseResp
+import com.abing.usercenter.data.protocol.EditUserReq
 import com.abing.usercenter.data.protocol.LoginReq
 import com.abing.usercenter.data.protocol.RegisterReq
 import com.abing.usercenter.data.protocol.UserInfo
@@ -52,4 +53,10 @@ interface UserApi {
     @FormUrlEncoded
     @POST("core/funcs/crma/mobileagent/updateFindPwd")
     fun resetPwd(@Field("mobile")mobile:String,@Field("newpwd") newpwd:String,@Field("confirmpwd")confirmpwd:String,@Field("udid")udid:String,@Field("type")type:String,@Field("authcode")authcode:String,@Field("sign")sign:String):Observable<BaseResp<String>>
+
+    /*
+            编辑用户资料
+         */
+    @POST("userCenter/editUser")
+    fun editUser(@Body req: EditUserReq):Observable<BaseResp<UserInfo>>
 }

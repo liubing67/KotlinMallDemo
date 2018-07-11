@@ -12,7 +12,10 @@ android {
         versionName rootProject.ext.android.versionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a','x86', 'x86_64', 'mips', 'mips64'
+        }
     }
     buildTypes {
         release {
@@ -75,14 +78,22 @@ dependencies {
     compile rootProject.ext.dependencies["bottom-navigation-bar"]
     //Banner
     compile rootProject.ext.dependencies["banner"]
-    //最新版本
-    //    //标签
+    //画廊
+    compile rootProject.ext.dependencies["Android-Coverflow"]
 
-    //    compile 'com.github.shts:TriangleLabelView:1.1.2'
+    //标签
+    compile rootProject.ext.dependencies["TriangleLabelView"]
 
-    //    //画廊
+    //    //Kotlin Bus
+    compile rootProject.ext.dependencies["rxbus"]
 
-    //    compile 'com.github.crosswall:Android-Coverflow:release-v1.0.4'
+    compile rootProject.ext.dependencies["flowlayout-lib"]
+    //ARouter
+    compile rootProject.ext.dependencies["arouter-api"]
+    //上下拉刷新
+    compile rootProject.ext.dependencies["bga-refreshlayout"]
+
+
 
     //MulitStateView
 
@@ -92,9 +103,7 @@ dependencies {
 
     //    compile 'cn.bingoogolapple:bga-refreshlayout:1.1.7@aar'
 
-    //    //Kotlin Bus
 
-    //    compile 'com.eightbitlab:rxbus:1.0.2'
 
     //    //FlowLayout
 

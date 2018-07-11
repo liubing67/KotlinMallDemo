@@ -30,4 +30,11 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile project(':Provider')
+
+    if (isUserModule.toBoolean()){
+        compile project(':UserCenter')
+    }
+    compile project(':MessageCenter')
+    compile project(':GoodsCenter')
+    compile project(':OrderCenter')
 }
