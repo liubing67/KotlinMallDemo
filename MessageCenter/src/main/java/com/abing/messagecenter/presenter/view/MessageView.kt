@@ -1,4 +1,4 @@
-package com.kotlin.message.presenter.view
+package com.abing.messagecenter.presenter.view
 
 import com.abing.baselibrary.presenter.view.BaseView
 import com.abing.messagecenter.data.protocol.Message

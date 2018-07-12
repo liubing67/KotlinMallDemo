@@ -1,10 +1,10 @@
-package com.kotlin.message.presenter
+package com.abing.messagecenter.presenter
 
 import com.abing.baselibrary.ext.excute
 import com.abing.baselibrary.presenter.BasePresenter
 import com.abing.baselibrary.rx.BaseSubscriber
 import com.abing.messagecenter.data.protocol.Message
-import com.kotlin.message.presenter.view.MessageView
+import com.abing.messagecenter.presenter.view.MessageView
 import com.abing.messagecenter.service.MessageService
 import javax.inject.Inject
 

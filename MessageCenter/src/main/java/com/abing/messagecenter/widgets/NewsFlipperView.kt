@@ -11,18 +11,6 @@ import org.jetbrains.anko.dimen
 import org.jetbrains.anko.find
 import org.jetbrains.anko.px2sp
 
-/**
- *
- * 项目名称：KotlinMallDemo
- * 类描述：
- * 创建人：liubing
- * 创建时间：2018-7-11 11:54
- * 修改人：Administrator
- * 修改时间：2018-7-11 11:54
- * 修改备注：
- * @version
- *
- */
 /*
     公告组件封装
  */

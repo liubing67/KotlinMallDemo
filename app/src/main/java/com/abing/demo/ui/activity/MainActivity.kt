@@ -41,11 +41,11 @@ class MainActivity : BaseActivity()  {
     //主界面Fragment
     private val mHomeFragment by lazy { HomeFragment() }
     //商品分类Fragment
-    private val mCategoryFragment by lazy { HomeFragment() }
+    private val mCategoryFragment by lazy { CategoryFragment() }
     //购物车Fragment
-    private val mCartFragment by lazy { HomeFragment() }
+    private val mCartFragment by lazy { CartFragment() }
     //消息Fragment
-    private val mMsgFragment by lazy { HomeFragment() }
+    private val mMsgFragment by lazy { MessageFragment() }
     //"我的"Fragment
     private val mMeFragment by lazy { MeFragment() }
 

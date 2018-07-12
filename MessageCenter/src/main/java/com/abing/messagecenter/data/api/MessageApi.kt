@@ -1,9 +1,9 @@
 package com.abing.messagecenter.data.api
 
 import com.abing.baselibrary.data.protocol.BaseResp
-import rx.Observable
 import com.abing.messagecenter.data.protocol.Message
 import retrofit2.http.POST
+import rx.Observable
 
 /*
     消息 接口

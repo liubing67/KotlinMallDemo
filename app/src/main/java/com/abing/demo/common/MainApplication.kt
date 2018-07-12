@@ -1,5 +1,6 @@
 package com.abing.demo.common
 
+import cn.jpush.android.api.JPushInterface
 import com.abing.baselibrary.common.BaseApplication
 
 /**
@@ -22,7 +23,7 @@ class MainApplication: BaseApplication() {
         super.onCreate()
 
         //极光推送初始化
-//        JPushInterface.setDebugMode(true)
-//        JPushInterface.init(this)
+        JPushInterface.setDebugMode(true)
+        JPushInterface.init(this)
     }
 }

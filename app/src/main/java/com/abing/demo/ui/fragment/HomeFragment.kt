@@ -12,10 +12,12 @@ import com.abing.demo.R
 import com.abing.demo.common.*
 import com.abing.demo.ui.adapter.HomeDiscountAdapter
 import com.abing.demo.ui.adapter.TopicAdapter
+import com.abing.goodscenter.ui.activity.SearchGoodsActivity
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.fragment_home.*
 import me.crosswall.lib.coverflow.CoverFlow
+import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 
 /**
@@ -54,7 +56,7 @@ class HomeFragment: BaseFragment() {
      */
     private fun initView() {
         mSearchEt.onClick {
-//            startActivity<SearchGoodsActivity>()
+            startActivity<SearchGoodsActivity>()
         }
 
         mScanIv.onClick {

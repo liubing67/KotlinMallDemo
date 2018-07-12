@@ -1,13 +1,12 @@
-package com.kotlin.message.data.repository
+package com.abing.messagecenter.data.repository
 
 
 import com.abing.baselibrary.data.net.RetrofitFactory
 import com.abing.baselibrary.data.protocol.BaseResp
-import javax.inject.Inject
-
-import rx.Observable
 import com.abing.messagecenter.data.api.MessageApi
 import com.abing.messagecenter.data.protocol.Message
+import rx.Observable
+import javax.inject.Inject
 
 
 /*

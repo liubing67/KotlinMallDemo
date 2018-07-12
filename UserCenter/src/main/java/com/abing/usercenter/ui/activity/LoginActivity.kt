@@ -5,6 +5,7 @@ import android.view.View
 import com.abing.baselibrary.ext.enable
 import com.abing.baselibrary.ext.onClick
 import com.abing.baselibrary.ui.activity.BaseMvpActivity
+import com.abing.provider.router.RouterPath
 import com.abing.usercenter.R
 import com.abing.usercenter.data.protocol.UserInfo
 import com.abing.usercenter.injection.component.DaggerUserComponent
@@ -12,6 +13,7 @@ import com.abing.usercenter.injection.module.UserModule
 import com.abing.usercenter.presenter.LoginPresenter
 import com.abing.usercenter.presenter.view.LoginView
 import com.abing.usercenter.utils.UserPrefsUtils
+import com.alibaba.android.arouter.facade.annotation.Route
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivity
@@ -29,6 +31,7 @@ import org.jetbrains.anko.toast
  * @version
  *
  */
+@Route(path = RouterPath.UserCenter.PATH_LOGIN)
 class LoginActivity : BaseMvpActivity<LoginPresenter>(),LoginView, View.OnClickListener {
 
 

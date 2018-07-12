@@ -14,6 +14,11 @@ android {
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : applicationId
+        ]
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -37,4 +42,5 @@ dependencies {
     compile project(':MessageCenter')
     compile project(':GoodsCenter')
     compile project(':OrderCenter')
+    compile project(':PaySDK')
 }

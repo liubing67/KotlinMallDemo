@@ -3,6 +3,15 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
+
+androidExtensions {
+    experimental = true
+}
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -33,4 +42,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':Provider')
     kapt  rootProject.ext.dependencies["dagger-compiler"]
+    //ARouter
+    kapt  rootProject.ext.dependencies["arouter-compiler"]
 }

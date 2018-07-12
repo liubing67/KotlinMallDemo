@@ -3,6 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -21,7 +26,7 @@ android {
         }
 
         manifestPlaceholders = [
-                JPUSH_PKGNAME : "com.kotlin.mall",
+                JPUSH_PKGNAME : "com.abing.demo",
                 JPUSH_APPKEY : "7f3d74ec9161e033d723f585", //JPush上注册的包名对应的appkey.
                 JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
         ]
@@ -44,4 +49,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':Provider')
     kapt  rootProject.ext.dependencies["dagger-compiler"]
+    kapt  rootProject.ext.dependencies["arouter-compiler"]
+    compile  rootProject.ext.dependencies["jpush"]
+    compile  rootProject.ext.dependencies["jcore"]
 }
